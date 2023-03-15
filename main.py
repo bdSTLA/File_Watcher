@@ -96,7 +96,6 @@ def do_things_with_changes(new_files: list):
      to a log file. If there are multiple files that have changed, it logs a message indicating that multiple files
       have changed, along with the details of the changes and the current time.
 
-    :param new_files:
     """
     print(f'File Change Detected: {new_files}')
     current_time = datetime.datetime.now().strftime('%Y-%m-%d %H:%M:%S')
@@ -116,11 +115,11 @@ def file_watcher(my_dir: str, poll_time: int):
     This function takes in a directory and a poll time, and continually checks the directory for changes.
     When changes are detected, it logs the details of the changes along with the current time to a log file.
 
-    :param my_dir:
-    :param poll_time:
-    :return:
+    my_dir:
+    poll_time:
     """
     while True:
+        original_list = []
         if 'watching' not in locals():
             original_list = file_in_directory(watch_dir)
             watching = 1
